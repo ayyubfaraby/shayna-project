@@ -11,7 +11,7 @@
               rel="noopener noreferrer" 
               class="instagram-link"
             >
-              <img src="../../img/instagram-white.png" alt="Instagram Icon" class="instagram-icon" />
+              <img src="/img/instagram-white.png" alt="Instagram Icon" class="instagram-icon" />
               <span class="instagram-name">@{{ photo.username }}</span>
             </a>
           </div>

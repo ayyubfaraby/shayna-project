@@ -22,16 +22,17 @@
               <td>{{ product.price }}</td>
               <td>
                 <button @click="removeProduct(index)" class="delete-button">
-                  <img src="../../public/img/close.png" alt="Delete Icon" class="delete-icon" />
+                  <img src="/img/close.png" alt="Delete Icon" class="delete-icon" />
                 </button>
+                
               </td>
             </tr>
           </tbody>
         </table>
         </div>
+      </div>
 
-        <!-- Tabel Informasi Transaksi -->
-        <div class="transaction-container">
+            <!-- Tabel Informasi Transaksi -->
           <table class="transaction-table">
             <tbody>
               <tr>
@@ -64,13 +65,6 @@
               </tr>
             </tbody>
           </table>
-          <div class="button-container">
-            <button class="confirm-button">
-              <router-link to="/final" class="nav-link">I ALREADY PAID</router-link>
-            </button>
-          </div>
-        </div>
-      </div>
 
       <!-- Informasi Pembeli -->
       <div class="buyer-info-container">
@@ -96,6 +90,7 @@
       </div>
 
       <!-- Tombol Konfirmasi -->
+      <button class="custom-button">Simpan & Lanjut</button>
 
     </div>
   </div>
@@ -107,9 +102,9 @@ export default {
   data() {
     return {
       products: [
-        { image: "../../img/mickey1.jpg", name: "Mickey Baggy", price: "$20.00" },
-        { image: "../../img/mickey2.jpg", name: "Mickey Classic", price: "$30.00" },
-        { image: "../../img/mickey3.jpg", name: "Mickey Modern", price: "$40.00" }
+        { image: "/img/mickey1.jpg", name: "Mickey Baggy", price: "$20.00" },
+        { image: "/img/mickey2.jpg", name: "Mickey Classic", price: "$30.00" },
+        { image: "/img/mickey3.jpg", name: "Mickey Modern", price: "$40.00" }
       ],
       buyerInfo: {
         name: "",
@@ -132,9 +127,8 @@ export default {
 </script>
 
 <style scoped>
-.whole-page {
-  padding: 0 80px;
-  margin-top: 30px;
+.checkout-table-container {
+  margin: 100px;
 }
 
 /* Kontainer fleksibel untuk kedua tabel */
@@ -154,18 +148,18 @@ export default {
 .checkout-table,
 .transaction-table {
   width: 100%;
+  margin-bottom: 30px;
   border-collapse: collapse;
 }
 
 .checkout-table th {
   padding: 10px;
-  text-align: center; /* Pusatkan teks secara horizontal */
-  vertical-align: middle; /* Pusatkan teks secara vertikal */
-  border-bottom: 1px solid #ddd; /* Garis bawah untuk judul */
-  background-color: #f8f8f8; /* Opsional: Tambahkan warna latar untuk judul */
-  font-weight: bold; /* Penekanan teks */
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f8f8;
+  font-weight: bold;
 }
-
 
 .checkout-table td {
   padding: 10px;
@@ -205,33 +199,33 @@ export default {
   background-color: #e7ab3b;
   color: white;
   border: none;
-  padding: 10px 131px;
   cursor: pointer;
   font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 6px;
 }
 
 table {
-  border-collapse: collapse; /* Gabungkan border agar rapi */
+  border-collapse: collapse;
   width: 100%;
-  border: 1px solid #ddd; /* Garis luar tabel */
+  border: 1px solid #ddd;
 }
 
 tr, td {
-  border: none; /* Hilangkan garis pada baris dan sel */
+  border: none;
 }
 
 td {
   padding: 10px;
-  text-align: center; /* Rata tengah teks */
+  text-align: center;
 }
 
 .buyer-info-form {
-  margin-right: 660px;
   margin-top: 20px;
   margin-bottom: 4%;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Jarak antar field */
+  gap: 15px;
 }
 
 .text-form {
@@ -244,7 +238,7 @@ td {
 }
 
 .form-group label {
-  margin-bottom: 5px; /* Jarak antara label dan input */
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -254,14 +248,15 @@ td {
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
 }
 
 .checkout-table td:first-child {
-  padding-left: 20px;  /* Hilangkan padding di sisi kiri */
+  padding-left: 20px;
 }
 
 .checkout-table th:first-child {
-  width: 140px; /* Sesuaikan dengan lebar gambar */
+  width: 140px;
 }
 
 .just-title-checkout {
@@ -269,7 +264,90 @@ td {
 }
 
 .checkout-table td:nth-child(3) {
-  color: #e7ab3b; /* Warna teks untuk kolom PRICE */
-  font-weight: bold; /* Opsional: Penekanan teks */
+  color: #e7ab3b;
+  font-weight: bold;
+}
+
+/* Tombol yang lebih menarik */
+.custom-button {
+  background-color: #e7ab3b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+}
+
+.custom-button:hover {
+  background-color: #d99a2f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:active {
+  background-color: #c58b28;
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive untuk layar <= 768px */
+@media (max-width: 768px) {
+  .whole-page {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checkout-table-container {
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .tables-container {
+    flex-direction: column; /* Ubah menjadi satu kolom */
+    gap: 10px;
+  }
+
+  .table-wrapper,
+  .transaction-container {
+    width: 100%;
+  }
+
+  .checkout-table td,
+  .transaction-table td {
+    padding: 8px;
+  }
+
+  .buyer-info-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .buyer-info-form {
+    gap: 10px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+  }
+
+ .custom-button {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 12px;
+ }
 }
 </style>

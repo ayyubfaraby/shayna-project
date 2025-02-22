@@ -15,7 +15,7 @@
               <p>MICKEY BAGGY</p>
           </div>
           <div class="description">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, error officia. Rem aperiam laborum voluptatum vel, pariatur modi hic provident eum iure natus quos non a sequi, id accusantium! Autem. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam possimus quisquam animi, commodi, nihil voluptate nostrum neque architecto illo officiis doloremque et corrupti cupiditate voluptatibus error illum. Commodi expedita animi nulla aspernatur. Id asperiores blanditiis, omnis repudiandae iste inventore cum, quam sint molestiae accusamus voluptates ex tempora illum sit perspiciatis. Nostrum dolor tenetur amet, illo natus magni veniam quia sit nihil dolores. Commodi ratione distinctio harum voluptatum velit facilis voluptas animi non laudantium, id dolorem atque perferendis enim ducimus? A exercitationem recusandae aliquam quod. Itaque inventore obcaecati, unde quam impedit praesentium veritatis quis beatae ea atque perferendis voluptates velit architecto?</p>
+              <p>Lorem ipsum dolor sit amet consectetur</p>
           </div>
           <div class="price">
             <p>$64.00</p>
@@ -39,8 +39,6 @@
     </div>
 <!-- PENUTUP -->
 </template>
-
-
 
 <script>
 import { onMounted } from "vue";
@@ -84,64 +82,51 @@ export default {
 };
 </script>
 
-
-
 <style scoped>
   .container {
-    padding: 0 30px;
     margin-top: 30px;
     margin-bottom: 0px;
+    max-width: 100%;
   }
 
   .owl-carousel {
-    padding-top: 0px;
-    padding-right: 700px;
-    padding-left: 12px;
-    padding-bottom: 5px;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    margin-left: 80px;
-    margin-right: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
   }
 
-  .owl-carousel .item img {
-  width: 230px; /* Sesuaikan ukuran lebar gambar */
-  height: 230px; /* Tinggi akan mengikuti proporsi gambar */
-}
-
-.content-wrapper {
+  .content-wrapper {
     display: flex;
-    align-items: center; /* Vertikal tengah */
-    gap: 20px; /* Jarak antar elemen */
+    align-items: center;
+    gap: 20px;
     margin-bottom: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
-  /* Foto */
+
   .pic-main {
-    flex-shrink: 0; /* Jangan izinkan foto mengecil */
+    flex-shrink: 0;
   }
-  
+
   .pic-size {
-    width: 550px; /* Lebar gambar */
-    height: 670px; /* Tinggi gambar */
-    object-fit: cover; /* Sesuaikan konten gambar */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
-  
-  /* Konten teks */
+
   .text-content {
     display: block;
-    margin-left: 30px;
+    text-align: center;
+    max-width: 300px;
   }
-  
+
   .name {
     font-size: 46px;
     font-weight: bold;
     margin-bottom: 15px;
   }
-  
+
   .description {
     font-size: medium;
-    margin: 10px 5px 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #8b8b8b;
   }
@@ -166,5 +151,43 @@ export default {
     cursor: pointer;
   }
 
+  /* Responsif untuk tampilan HP */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .owl-carousel {
+    padding: 0 100px; /* Menambah ruang di sisi kanan & kiri */
+    }
+
+    .pic-main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pic-size {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    .text-content {
+      margin-left: 0;
+      padding: 20px;
+    }
+  }
+
+  /* Navbar di lapisan teratas */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 9999;
+  }
 </style>
-  
